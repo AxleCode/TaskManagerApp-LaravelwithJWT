@@ -29,4 +29,13 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    public function tasksCreated() {
+        return $this->hasMany(Task::class,'created_by');
+    }
+    
+    public function tasksAssigned() {
+        return $this->hasMany(Task::class,'assigned_to');
+    }
+    
 }
